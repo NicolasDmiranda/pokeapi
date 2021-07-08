@@ -1,5 +1,4 @@
 let api ="https://pokeapi.co/api/v2/";
-
 let loading = false
 window.onload = function(){
     //buscar---------------------------------------------------
