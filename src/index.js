@@ -1,5 +1,5 @@
 let api ="https://pokeapi.co/api/v2/";
-
+let loading = false
 window.onload = function(){
     //buscar---------------------------------------------------
     var element = window.document.getElementById("buscarv")
@@ -17,11 +17,13 @@ window.onload = function(){
  }
 
 function buscar() {
+    loading = true;
     var name = document.getElementById("textoBuscar").value;
      axios.get(api + 'pokemon/' + name) //https://pokeapi.co/api/v2/pokemon/{name}/
         .then(function (response)
         {     
             procesardatos(response.data);
+            loading = false;
         })   
         .catch(function (error) 
         {  
@@ -29,6 +31,7 @@ function buscar() {
             detalle.classList.add("d-none")
             alert("Tu pokemon ingresado no se encuentra")
             console.log(error);
+            loading = false
         })
 }
 
