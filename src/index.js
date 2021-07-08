@@ -42,6 +42,10 @@ function procesardatos(data){
     var nombre = window.document.getElementById("nombre");
     nombre.innerText = data.name;
 
+     //tipo---------------------------------------------------
+     var tipo = window.document.getElementById("tipo");
+     tipo.innerText = data.types[0].type.name;
+
     //abilities---------------------------------------------------
     var habilidades = window.document.getElementById("habilidades");
     habilidades.innerHTML="";
@@ -64,10 +68,6 @@ function procesardatos(data){
         li.innerText = element.move.name;
         movimientos.append(li);
     }
-
-    //tipo---------------------------------------------------
-    var tipo = window.document.getElementById("tipo");
-    tipo.innerText = data.types[0].type.name;
 
     var detalle = window.document.getElementById("detalle")
     detalle.classList.remove("d-none")
