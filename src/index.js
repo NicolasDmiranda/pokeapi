@@ -1,11 +1,11 @@
 let api ="https://pokeapi.co/api/v2/";
 
 window.onload = function(){
-    //buscar
+    //buscar---------------------------------------------------
     var element = window.document.getElementById("buscarv")
     element.addEventListener("click", buscar);
 
-    //limpiar
+    //limpiar---------------------------------------------------
     var element2 = window.document.getElementById("limpiar")
     element2.addEventListener("click", limpiar);
  }
@@ -18,7 +18,7 @@ window.onload = function(){
 
 function buscar() {
     var name = document.getElementById("textoBuscar").value;
-     axios.get(api + 'pokemon/'+ name)// https://pokeapi.co/api/v2/pokemon/{name}/
+     axios.get(api + 'pokemon/' + name) //https://pokeapi.co/api/v2/pokemon/{name}/
         .then(function (response)
         {     
             procesardatos(response.data);
@@ -27,22 +27,22 @@ function buscar() {
         {  
             var detalle = window.document.getElementById("detalle")
             detalle.classList.add("d-none")
-            alert("hola, no hemos encontrado tu puchamon")
+            alert("Tu pokemon ingresado no se encuentra")
             console.log(error);
         })
 }
 
 function procesardatos(data){
 
-    //img
+    //img---------------------------------------------------
     var imagen = window.document.getElementById("imagen");
     imagen.src = data.sprites.front_default;
  
-    //name
+    //name---------------------------------------------------
     var nombre = window.document.getElementById("nombre");
     nombre.innerText = data.name;
 
-    //abilities
+    //abilities---------------------------------------------------
     var habilidades = window.document.getElementById("habilidades");
     habilidades.innerHTML="";
     var listaHabilidades = data.abilities;
@@ -53,7 +53,7 @@ function procesardatos(data){
         habilidades.append(li);
     });
 
-    //moves
+    //moves---------------------------------------------------
     var movimientos = window.document.getElementById("movimientos");
     movimientos.innerHTML="";
     var listaMovimientos = data.moves;
@@ -65,7 +65,7 @@ function procesardatos(data){
         movimientos.append(li);
     }
 
-    //tipo
+    //tipo---------------------------------------------------
     var tipo = window.document.getElementById("tipo");
     tipo.innerText = data.types[0].type.name;
 
