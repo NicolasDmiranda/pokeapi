@@ -9,3 +9,9 @@ ul {
     width: 400px;
     margin-top: 50px;
 }
+
+body {
+    font-family: "Open Sans", -apple-system, 
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, 
+    Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
